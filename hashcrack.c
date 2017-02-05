@@ -7,7 +7,7 @@
 
 int main() {
 	
-	unsigned char* cipher = "8104ba1dc0409b259f487ed07db477c38f205a30";//"f6677d53fee627ac44f18faaff0821954d8a1b6a";
+	unsigned char* cipher = "f6677d53fee627ac44f18faaff0821954d8a1b6a";//"f6677d53fee627ac44f18faaff0821954d8a1b6a";
 	char attempt[] = "0000000000";
 	unsigned char hash[SHA_DIGEST_LENGTH];
     unsigned char* attempt2 = (unsigned char*)attempt;
