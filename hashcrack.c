@@ -48,6 +48,8 @@ int main() {
     										printf("\n");
     										finalHash[40] = '\0';
 
+    										printf("%s\n", finalHash);
+
     										if(memcmp(cipher, finalHash, 40) == 0)
     											// yeah I know, shut the fuck up
     											goto done;    										
