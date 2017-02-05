@@ -35,12 +35,11 @@ int main() {
     										attempt[9] = j;
     										
     										SHA1(attempt2, 10, hash);
-    										if(!strcmp(cipher, (char*)hash))
-    											break;
+
+    										// MAKE THIS EFFICIENT
     										char temp[2];
     										char finalHash[41];
     										memset(finalHash, 0, 41);
-    										printf("%s\n", finalHash);
 
     										for(int k = 0; k < SHA_DIGEST_LENGTH; k++) {
     											sprintf(temp, "%02x", hash[k]);
@@ -49,23 +48,9 @@ int main() {
     										printf("\n");
     										finalHash[40] = '\0';
 
-											printf("attempt: %s\n", attempt);
-    										printf("attempt2: %s\n", attempt2);
-    										printf("cipher: %s\n", cipher);
-    										printf("hash: %s\n", hash);
-    										printf("finalHash: %s\n", finalHash);
-    										printf("strlen(cipher): %d\n", (int)strlen(cipher));
-    										printf("memcmp: %d\n", memcmp(cipher, finalHash, 40));
-
-    										for (i = 0; i < SHA_DIGEST_LENGTH; i++)
-        										printf("%02x", hash[i]);
-    										printf("\n");
-
     										if(memcmp(cipher, finalHash, 40) == 0)
-    											printf("We did it Reddit!\n");
-
-    										read(1, attempt, 10);
-    										
+    											// yeah I know, shut the fuck up
+    											goto done;    										
     									} 
     								}
     							}
@@ -76,9 +61,8 @@ int main() {
     		}
     	}
     }
-
-    
-    printf("Plaintext: %s\n", attempt);
+   
+    done: printf("Plaintext: %s\n", attempt);
 
     return 0;
 
