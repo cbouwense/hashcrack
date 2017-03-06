@@ -21,20 +21,53 @@ void checkHash(int* t) {
      * most likely just make the runtime less efficient in the long run
      */
     for (a = '0'; a <= 'z'; a++) {
+        if (a == ('Z' + 1))
+        if (a == '9' + 1)
+            a = 'A';
+        if (a == 'Z' + 1)
+            a = 'a';
         attempt[1] = a;
         for (b = '0'; b <= 'z'; b++) {
+            if (b == '9' + 1)
+                b = 'A';
+            if (b == 'Z' + 1)
+                b = 'a';
             attempt[2] = b;
             for (c = '0'; c <= 'z'; c++) {
+                if (c == '9' + 1)
+                    c = 'A';
+                if (c == 'Z' + 1)
+                    c = 'a';
                 attempt[3] = c;
                 for (d = '0'; d <= 'z'; d++) {
+                    if (d == '9' + 1)
+                        d = 'A';
+                    if (d == 'Z' + 1)
+                        d = 'a';
                     attempt[4] = d;
                     for (e = '0'; e <= 'z'; e++) {
+                        if (e == '9' + 1)
+                            e = 'A';
+                        if (e == 'Z' + 1)
+                            e = 'a';
                         attempt[5] = e;
                         for (f = '0'; f <= 'z'; f++) {
+                        	if (f == '9' + 1)
+                                f = 'A';
+                            if (f == 'Z' + 1)
+                                f = 'a';
                             attempt[6] = f;
                             for (g = '0'; g <= 'z'; g++) {
+                                if (g == '9' + 1)
+	                                g = 'A';
+	                            if (g == 'Z' + 1)
+	                                g = 'a';
                                 attempt[7] = g;
                                 for (h = '0'; h <= 'z'; h++) {
+                                    if (h == '9' + 1)
+                                        h = 'A';
+                                    if (h == 'Z' + 1)
+                                        h = 'a';
                                     attempt[8] = h;
 
                                     SHA1(attempt, 9, hash);
@@ -57,6 +90,8 @@ void checkHash(int* t) {
                                     }
                                     // Null terminate the final hash
                                     finalHash[40] = '\0';
+
+                                    printf("%s\n", attempt);
 
                                     // Compare the final hash to the actual cipher
                                     if(memcmp(cipher, finalHash, 40) == 0) {
