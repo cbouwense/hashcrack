@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <sys/time.h>
 
 int threadID = 0;
 
@@ -112,6 +113,10 @@ void checkHash(int* t) {
 
 int main() {
 	
+	// To see how long it takes to crack this
+	clock_t timeBegin = clock();
+	double totalTime;
+
     // Make a thread for each possible character in the most significant slot
     pthread_t threads[62];
 
@@ -132,6 +137,9 @@ int main() {
     for (int i = 0; i < 62; i++) {
         pthread_join(threads[i], NULL);
     }
+
+    totalTime = (double)(clock() - timeBegin) / CLOCKS_PER_SEC;
+    printf("Total time: %f\n", totalTime);
 
     return 0;
 
